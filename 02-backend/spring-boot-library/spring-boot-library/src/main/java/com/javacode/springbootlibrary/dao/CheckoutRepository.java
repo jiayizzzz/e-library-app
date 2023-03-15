@@ -10,12 +10,12 @@ import java.util.List;
 
 public interface CheckoutRepository extends JpaRepository<Checkout, Long> {
 
-    Checkout findByUserEmailAndBookId(String userEmail, Long bookId);
+  Checkout findByUserEmailAndBookId(String userEmail, Long bookId);
 
-    List<Checkout> findBooksByUserEmail(String userEmail);
+  List<Checkout> findBooksByUserEmail(String userEmail);
 
-    @Modifying
-    @Query("delete from Checkout where bookId in :book_id")
-    void deleteAllByBookId(@Param("book_id") Long bookId);
+  @Modifying
+  @Query("delete from Checkout where bookId in :book_id")
+  void deleteAllByBookId(@Param("book_id") Long bookId);
 //    @Query("delete from Checkout where bookId in :boo")
 }

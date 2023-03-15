@@ -5,16 +5,16 @@ import lombok.Data;
 @Data
 public class AddBookRequest {
 
-    private String title;
+  private String title;
 
-    private String author;
+  private String author;
 
-    private String description;
+  private String description;
 
-    private int copies;
+  private int copies;
 
-    private String category;
+  private String category;
 
-    private String img;
+  private String img;
 
 }
