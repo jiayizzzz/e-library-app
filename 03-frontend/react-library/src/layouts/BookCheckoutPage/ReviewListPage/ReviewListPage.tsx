@@ -3,6 +3,7 @@ import ReviewModel from '../../../models/ReviewModel';
 import { Pagination } from '../../Utils/Pagination';
 import { Review } from '../../Utils/Review';
 import { SpinnerLoading } from '../../Utils/SpinnerLoading';
+import { API_BASE_URL } from '../../../constants/apiConstants';
 
 export const ReviewListPage = () => {
 
@@ -22,7 +23,7 @@ export const ReviewListPage = () => {
     useEffect(() => {
         const fetchBookReviewsData = async () => {
 
-            const reviewUrl: string = `http://localhost:5000/api/reviews/search/findByBookId?bookId=${bookId}&page=${currentPage - 1}&size=${reviewsPerPage}`;
+            const reviewUrl: string = `${API_BASE_URL}/api/reviews/search/findByBookId?bookId=${bookId}&page=${currentPage - 1}&size=${reviewsPerPage}`;
 
             const responseReviews = await fetch(reviewUrl);
 

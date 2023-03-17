@@ -4,6 +4,7 @@ import BookModel from '../../../models/BookModel';
 import { SpinnerLoading } from '../../Utils/SpinnerLoading';
 import { Pagination } from '../../Utils/Pagination';
 import { ChangeQuantityOfBook } from "./ChangeQuantityOfBook";
+import { API_BASE_URL } from "../../../constants/apiConstants";
 
 export const ChangeQuantityOfBooks = () => {
 
@@ -19,7 +20,7 @@ export const ChangeQuantityOfBooks = () => {
 
     useEffect(() => {
         const fetchBooks = async () => {
-            const baseUrl: string = `http://localhost:5000/api/books?page=${currentPage - 1}&size=${booksPerPage}`;
+            const baseUrl: string = `${API_BASE_URL}/api/books?page=${currentPage - 1}&size=${booksPerPage}`;
 
             const response = await fetch(baseUrl);
 
