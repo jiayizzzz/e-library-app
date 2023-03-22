@@ -3,7 +3,6 @@ import BookModel from '../../models/BookModel';
 import { Pagination } from '../Utils/Pagination';
 import { SpinnerLoading } from '../Utils/SpinnerLoading';
 import { SearchBook } from './components/SearchBook';
-import { API_BASE_URL } from '../../constants/apiConstants';
 
 export const SearchBooksPage = () => {
 
@@ -20,7 +19,7 @@ export const SearchBooksPage = () => {
 
     useEffect(() => {
         const fetchBooks = async () => {
-            const baseUrl = `${API_BASE_URL}/api/books`;
+            const baseUrl = `${process.env.REACT_APP_API_BASE_URL}/api/books`;
 
             let url: string = '';
 

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import ShelfCurrentLoans from '../../../models/ShelfCurrentLoans';
 import { SpinnerLoading } from '../../Utils/SpinnerLoading';
 import { LoansModal } from './LoansModal';
-import { API_BASE_URL } from '../../../constants/apiConstants';
 
 export const Loans = () => {
     
@@ -19,7 +18,7 @@ export const Loans = () => {
     useEffect(() => {
         const fetchUserCurrentLoans = async () => {
             if (authState && authState.isAuthenticated) {
-                const url = `${API_BASE_URL}/api/books/secure/currentloans`;
+                const url = `${process.env.REACT_APP_API_BASE_URL}/api/books/secure/currentloans`;
                 const requestOptions = {
                     method: 'GET',
                     headers: {
@@ -60,7 +59,7 @@ export const Loans = () => {
     }
 
     async function returnBook(bookId: number) {
-        const url = `${API_BASE_URL}/api/books/secure/return/?bookId=${bookId}`;
+        const url = `${process.env.REACT_APP_API_BASE_URL}/api/books/secure/return/?bookId=${bookId}`;
         const requestOptions = {
             method: 'PUT',
             headers: {
@@ -76,7 +75,7 @@ export const Loans = () => {
     }
 
     async function renewLoan(bookId: number) {
-        const url = `${API_BASE_URL}/api/books/secure/renew/loan/?bookId=${bookId}`;
+        const url = `${process.env.REACT_APP_API_BASE_URL}/api/books/secure/renew/loan/?bookId=${bookId}`;
         const requestOptions = {
             method: 'PUT',
             headers: {

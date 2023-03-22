@@ -3,7 +3,6 @@ import { useOktaAuth } from '@okta/okta-react';
 import MessageModel from '../../../models/MessageModel';
 import { SpinnerLoading } from '../../Utils/SpinnerLoading';
 import { Pagination } from '../../Utils/Pagination';
-import { API_BASE_URL } from '../../../constants/apiConstants';
 
 export const Messages = () => {
 
@@ -22,7 +21,7 @@ export const Messages = () => {
     useEffect(() => {
         const fetchUserMessages = async () => {
             if (authState && authState?.isAuthenticated) {
-                const url = `${API_BASE_URL}/api/messages/search/findByUserEmail/?userEmail=${authState?.accessToken?.claims.sub}&page=${currentPage - 1}&size=${messagesPerPage}`;
+                const url = `${process.env.REACT_APP_API_BASE_URL}/api/messages/search/findByUserEmail/?userEmail=${authState?.accessToken?.claims.sub}&page=${currentPage - 1}&size=${messagesPerPage}`;
                 const requestOptions = {
                     method: 'GET',
                     headers: {

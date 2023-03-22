@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import BookModel from "../../../models/BookModel";
 import { SpinnerLoading } from "../../Utils/SpinnerLoading";
 import { Link } from "react-router-dom";
-import { API_BASE_URL } from "../../../constants/apiConstants";
 
 export const Carousel = () => {
 
@@ -13,7 +12,7 @@ export const Carousel = () => {
 
     useEffect(() => {
         const fetchBooks = async () => {
-            const baseUrl = `${API_BASE_URL}/api/books`;
+            const baseUrl = `${process.env.REACT_APP_API_BASE_URL}/api/books`;
 
             const url: string = `${baseUrl}?page=0&size=9`;
 

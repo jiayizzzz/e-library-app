@@ -26,7 +26,6 @@ export const LibraryServices = () => {
                             Sign up
                         </Link> 
                     }
-
                     </div>
                 </div>
                 <div className='col-lg-4 offset-lg-1 shadow-lg lost-image'></div>
